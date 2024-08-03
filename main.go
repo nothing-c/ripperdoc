@@ -5,7 +5,8 @@ import (
     "fmt"
     "regexp"
     "io"
-//    "flag"
+    "flag"
+//    "os"
 )
 
 func dump (T string) {
@@ -25,6 +26,11 @@ func dump (T string) {
 }
 
 func main () {
-    //T:="Impreza Wiring.docx"
-    dump("Impreza Wiring.docx")
+    fmt.Println(flag.Arg(0))
+    fmt.Println(flag.NArg())
+    for _,f := range flag.CommandLine.Args() {
+        fmt.Println("foo")
+        fmt.Println(f)
+        dump(f)
+    }
 }
