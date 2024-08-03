@@ -28,11 +28,17 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 - close all of the above and exit
 
+- add mascot to README
+
+- make error handling better
+
 Niceties:
 
 - switch to batch-run, using goroutines
 
 - switch to specify output file
+
+- help function
 
 https://pkg.go.dev/flag - getopt equiv
 
