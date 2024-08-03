@@ -15,7 +15,7 @@ func main () {
     for _,f := range R.File { 
         if f.Name=="word/document.xml" { r,e:=f.Open(); if e!=nil { panic(e) }
             //x:=xml.NewDecoder(r)
-            re,e:=regexp.Compile(`<w:t>(.*?)<\/w:t>`); if e!=nil { panic(e) }
+            re,e:=regexp.Compile(`<w:t.*?>(.*?)<\/w:t>`); if e!=nil { panic(e) }
             x,e:=io.ReadAll(r); if e!=nil { panic(e) }
             //fmt.Printf("%q \n", re.FindAllStringSubmatch(string(x),-1))
             for _,m := range re.FindAllStringSubmatch(string(x),-1) {
