@@ -20,13 +20,15 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 - open docx file, dying if can't
 
-=head2 TODO
-
 - open word/document.xml or die if it isn't there
+
+- close all of the above and exit
+
+=head2 TODO
 
 - grep through document.xml for text, dumping it to stdout
 
-- close all of the above and exit
+
 
 - add mascot to README
 
