@@ -2,6 +2,8 @@
 
 =head1 Ripperdoc: a tool to quickly grab all the text out of a .docx file
 
+=for html <img src="mascot.jpg" alt="dex mascot">
+
 - unzip, nab text from xml, dump in outfile (ez perl script)
 
 - document.xml is the main one
@@ -24,13 +26,11 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 - close all of the above and exit
 
-=head2 TODO
-
 - grep through document.xml for text, dumping it to stdout
 
+=head2 TODO
 
-
-- add mascot to README
+- resolve issue with nabbing formatted text
 
 - make error handling better
 
