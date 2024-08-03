@@ -1,0 +1,37 @@
+=pod
+
+
+* TODO tool: ripping text from docx
+- unzip, nab text from xml, dump in outfile (ez perl script)
+- Archive::Zip
+- document.xml is the main one
+- https://gist.github.com/felipeochoa/81d8fa27901e8222c6ffbeb165a85acc
+- golang: encoding/xml and archive/zip
+- x.docx/word/document.xml, grep for /<w:t>(.*?)<\/w:t>/
+- use impreza wiring in archive/manuals and thesis for a test
+Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\Impreza Wiring.docx' extract-tmp; cd extract-tmp/word; perl '-Mv5.10' -lne '$_ =~ /<w:t>(.*)+?<\/w:t>/; say @{^CAPTURE};' document.xml
+
+tasks:
+- open docx file, dying if it isn't
+- open word/document.xml or die if it isn't there
+- grep through document.xml for text, dumping it to stdout
+- close all of the above and exit
+
+Niceties:
+- switch to batch-run, using goroutines
+- switch to specify output file
+
+https://pkg.go.dev/flag - getopt equiv
+
+
+
+
+
+
+
+
+
+
+
+
+=cut
