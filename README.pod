@@ -30,9 +30,9 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 - resolve issue with nabbing formatted text
 
-=head2 TODO
-
 - add file specification
+
+=head2 TODO
 
 - make error handling better
 
@@ -44,7 +44,9 @@ Niceties:
 
 - help function
 
-- strip pictures
+- strip and dump pictures
+
+- "smart mode" - reconstrcut document (join lines if they start/end with a whitespace)
 
 https://pkg.go.dev/flag - getopt equiv
 

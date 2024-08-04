@@ -26,11 +26,8 @@ func dump (T string) {
 }
 
 func main () {
-    fmt.Println(flag.Arg(0))
-    fmt.Println(flag.NArg())
-    for _,f := range flag.CommandLine.Args() {
-        fmt.Println("foo")
-        fmt.Println(f)
+    flag.Parse()
+    for _,f := range flag.Args() {
         dump(f)
     }
 }
