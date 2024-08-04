@@ -25,7 +25,15 @@ func dump (T string) {
     R.Close()
 }
 
+func help () {
+    //help function here
+}
+
 func main () {
+    Ob:=flag.Bool("b",false,"Run in batch mode")
+    Oo:=flag.String("o","rdout","Output file")
+    Os:=flag.Bool("s",false,"Enable 'smart mode', which tries to reconstruct the docx file's structure")
+    Oh:=flag.Bool("h",false,help())
     flag.Parse()
     for _,f := range flag.Args() {
         dump(f)

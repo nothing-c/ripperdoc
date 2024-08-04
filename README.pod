@@ -38,15 +38,13 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 Niceties:
 
-- switch to batch-run, using goroutines
+- switch to batch-run, using goroutines (-b)
 
-- switch to specify output file
+- switch to specify output file (-o)
 
-- help function
+- help function (-h)
 
-- strip and dump pictures
-
-- "smart mode" - reconstrcut document (join lines if they start/end with a whitespace)
+- "smart mode" - reconstruct document (join lines if they start/end with a whitespace) (-s)
 
 https://pkg.go.dev/flag - getopt equiv
 
