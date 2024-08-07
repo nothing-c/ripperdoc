@@ -6,7 +6,7 @@ import (
     "regexp"
     "io"
     "flag"
-//    "os"
+    "os"
 )
 
 func dump (T string) {
@@ -26,15 +26,23 @@ func dump (T string) {
 }
 
 func help () {
-    //help function here
+    A := []string{"o","s","h"}
+    fmt.Println("Ripperdoc: a tool to quickly grab all the text out of a .docx file")
+    fmt.Println("Usage: rdoc [-sh] [-o outfile]")
+    for _,x := range A {
+        fmt.Println("-" + x + ": " + flag.Lookup(x).Usage)
+    }
+    os.Exit(0)
 }
 
 func main () {
-    Ob:=flag.Bool("b",false,"Run in batch mode")
-    Oo:=flag.String("o","rdout","Output file")
+    Oo:=flag.String("o","rdout","Write output to a file instead of stdout")
     Os:=flag.Bool("s",false,"Enable 'smart mode', which tries to reconstruct the docx file's structure")
-    Oh:=flag.Bool("h",false,help())
+    Oh:=flag.Bool("h",false,"Display this message")
     flag.Parse()
+    if *Oh == true { help() }
+    if *Oo != "rdout" { fmt.Println("output file: " + *Oo) }
+    if *Os != false { fmt.Println("smart mode on") }
     for _,f := range flag.Args() {
         dump(f)
     }
