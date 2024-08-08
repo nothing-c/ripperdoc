@@ -32,21 +32,21 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 - add file specification
 
+- help function (-h)
+
+- make it automatically run goroutines
+
 =head2 TODO
 
 - make error handling better
 
-- make it automatically run goroutines
-
-  - make sure that the file list only contains unique values so I don't get race conditions
+- make sure that the file list only contains unique values so I don't get race conditions
 
 Niceties:
 
 - switch to specify output file (-o)
 
-  - automatically dump to s/docx$/txt/, and have -o specify different one?
-
-- help function (-h)
+  - automatically dump to s/docx$/txt/, and have -o specify different one? - no
 
 - "smart mode" - reconstruct document (join lines if they start/end with a whitespace) (-s)
 
