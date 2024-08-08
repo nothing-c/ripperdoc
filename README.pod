@@ -36,15 +36,13 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 - make it automatically run goroutines
 
+- switch to specify output file (-o)
+
 =head2 TODO
 
 - make error handling better
 
 Niceties:
-
-- switch to specify output file (-o)
-
-  - automatically dump to s/docx$/txt/, and have -o specify different one? - no
 
 - "smart mode" - reconstruct document (join lines if they start/end with a whitespace) (-s)
 
