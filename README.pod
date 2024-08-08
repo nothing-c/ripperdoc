@@ -38,14 +38,14 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 
 - switch to specify output file (-o)
 
+- "smart mode" - reconstruct document (join lines if they start/end with a whitespace) (-s)
+
 =head2 TODO
 
 - make error handling better
 
 Niceties:
 
-- "smart mode" - reconstruct document (join lines if they start/end with a whitespace) (-s)
 
-https://pkg.go.dev/flag - getopt equiv
 
 =cut

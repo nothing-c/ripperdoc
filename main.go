@@ -10,7 +10,7 @@ import (
     "sync"
 )
 
-func dump (T string, C chan string) {
+func dump (T string, C chan string, Sp bool) {
     var S string
     R,e:=zip.OpenReader(T)
     if e!=nil { panic(e) } 
@@ -19,8 +19,16 @@ func dump (T string, C chan string) {
             re,e:=regexp.Compile(`<w:t.*?>(.*?)<\/w:t>`); if e!=nil { panic(e) }
             x,e:=io.ReadAll(r); if e!=nil { panic(e) }
             for _,m := range re.FindAllStringSubmatch(string(x),-1) {
-                S += m[1] + "\n"
-                //fmt.Println(m[1])
+                if Sp == true {
+                    mp,_ := regexp.Match(`^\s.*`,[]byte(m[1]))
+                    if mp == true {
+                        S += m[1]
+                    } else {
+                        S += m[1] + "\n"
+                    }
+                } else {
+                    S += m[1] + "\n"
+                }
             }
             r.Close(); break
         }
@@ -50,12 +58,11 @@ func main () {
     var e error // Have to do this to make the compiler happy -__-
     if *Oo != "" { OF,e = os.OpenFile(*Oo, os.O_RDWR|os.O_CREATE, 0644); if e!=nil { panic(e) } } else { OF = os.Stdout }
     if *Oh == true { help() }
-    if *Os != false { fmt.Println("smart mode on") }
     for _,f := range flag.Args() {
         W.Add(1)
         go func(s string) {
             defer W.Done()
-            dump(s,C)
+            dump(s,C,*Os)
         }(f)
     }
     W.Wait()
