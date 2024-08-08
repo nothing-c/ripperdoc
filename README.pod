@@ -2,7 +2,7 @@
 
 =head1 Ripperdoc: a tool to quickly grab all the text out of a .docx file
 
-=for html <img src="mascot.jpg" alt="dex mascot">
+=for html <img src="mascot.jpg" alt="ripperdoc mascot">
 
 - unzip, nab text from xml, dump in outfile (ez perl script)
 
@@ -17,6 +17,8 @@
 - use impreza wiring in archive/manuals for a test
 
 Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\Impreza Wiring.docx' extract-tmp; cd extract-tmp/word; perl '-Mv5.10' -lne '$_ =~ /<w:t>(.*)+?<\/w:t>/; say @{^CAPTURE};' document.xml
+
+It'd be better if I actually traversed the XML, since I could make better judgments on document reconstruction. However, I don't actually care.
 
 =head2 Done
 
@@ -43,9 +45,5 @@ Approximate equivalent of this pwsh line: mkdir extract-tmp; expand-archive '.\I
 =head2 TODO
 
 - make error handling better
-
-Niceties:
-
-
 
 =cut
