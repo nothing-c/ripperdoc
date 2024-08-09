@@ -40,10 +40,11 @@ func dump (T string, C chan string, Sp bool) {
 func help () {
     A := []string{"o","s","h"}
     fmt.Println("Ripperdoc: a tool to quickly grab all the text out of a .docx file")
-    fmt.Println("Usage: rdoc [-sh] [-o outfile]")
+    fmt.Println("Usage: rdoc [-sh] [-o outfile] file1 file2 ...")
     for _,x := range A {
         fmt.Println("-" + x + ": " + flag.Lookup(x).Usage)
     }
+    fmt.Println("Multiple file outputs are separated by a tilde (~). Without -o, outputs file contents to STDOUT.")
     os.Exit(0)
 }
 
